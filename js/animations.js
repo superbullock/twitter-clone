@@ -52,7 +52,7 @@ $(document).ready(function(){
     $('#tweet-submit').on('click', function () {
         var tweet = $('.tweet-compose').val();
         var name = $('#profile-summary p').text();
-        $('#stream').prepend('<div class="tweet"> <div class="content"> <img class="avatar" src="img/alagoon.jpg" /> <strong class="fullname">' + name + '</strong> <span class="username">@superbullock</span> <p class="tweet-text">' + tweet + '</p> <div class="tweet-actions"> <ul> <li><span class="icon action-reply" data-toggle="tooltip" data-original-title="Reply"></span></li> <li><span class="icon action-retweet" data-toggle="tooltip" data-original-title="Retweet"></span></li> 	<li><span class="icon action-favorite" data-toggle="tooltip" data-original-title="Favorite"></span></li> <li><span class="icon action-more" data-toggle="tooltip" data-original-title="More..."></span> </li> </ul> </div> <div class="stats"> <div class="retweets"> <p class="num-retweets">30</p> <p>RETWEETS</p> </div> <div class="favorites"> <p class="num-favorites">6</p> <p>FAVORITES</p> </div> <div class="users-interact"> <div> <img src="img/alagoon.jpg" /> <img src="img/vklimenko.jpg" /> </div> </div> <div class="time"> 1:04 PM - 19 Sep 13 </div> </div> <div class="reply"> <img class="avatar" src="img/alagoon.jpg" /> <textarea class="tweet-compose" placeholder="Reply to @mybff"/></textarea> </div> </div> </div>');
+        $('#stream').prepend('<div class="tweet"> <div class="content"> <img class="avatar" src="img/alagoon.jpg" /> <strong class="fullname">' + name + '</strong> <span class="username">@superbullock</span> <p class="tweet-text">' + tweet + '</p> <div class="tweet-actions"> <ul> <li><span class="icon action-reply" data-toggle="tooltip" data-original-title="Reply"></span></li> <li><span class="icon action-retweet" data-toggle="tooltip" data-original-title="Retweet"></span></li> 	<li><span class="icon action-favorite" data-toggle="tooltip" data-original-title="Favorite"></span></li> <li><span class="icon action-more" data-toggle="tooltip" data-original-title="More..."></span> </li> </ul> </div> <div class="stats"> <div class="retweets"> <p class="num-retweets">30</p> <p>RETWEETS</p> </div> <div class="favorites"> <p class="num-favorites">6</p> <p>FAVORITES</p> </div> <div class="users-interact"> <div> <img src="img/alagoon.jpg" /> <img src="img/vklimenko.jpg" /> </div> </div> <div class="time"> 1:04 PM - 19 Sep 13 </div> </div> <div class="reply"> <img class="avatar" src="img/alagoon.jpg" /> <textarea class="tweet-reply" placeholder="Reply to @mybff"/></textarea> </div> </div> </div>');
         $('.tweet-compose').val('');
         $('#tweet-controls').hide();
         $('.tweet-compose').css('height', '2.5em');
@@ -79,5 +79,15 @@ $(document).ready(function(){
         $(this).find('.reply').hide();
     });
     
-    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+    $('#stream').on('mouseenter', function () { 
+        $("[data-toggle='tooltip']").tooltip(); 
+    });
+    
+    $('#stream').on('click', '.action-favorite', function () {
+        $(this).toggleClass('favorited')
+    });
+    
+    $('#stream').on('click', '.action-retweet', function () {
+        $(this).addClass('retweeted');
+    });
 });
