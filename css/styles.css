@@ -204,6 +204,9 @@ body {
 	.action-reply {
 		background-position: 0 -190px;
 	}
+    .replied {
+        background-color: #0084B4;
+    }
 	.action-retweet {
 		background-position: -20px -190px;
 		width: 14px;

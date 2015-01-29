@@ -90,4 +90,8 @@ $(document).ready(function(){
     $('#stream').on('click', '.action-retweet', function () {
         $(this).addClass('retweeted');
     });
+    
+    $('#stream').on('click', '.action-reply', function () {
+        $(this).addClass('replied');
+    });
 });
